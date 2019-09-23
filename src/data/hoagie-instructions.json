@@ -1,0 +1,211 @@
+{
+    "name": "Hoagie",
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "Bread"
+        },
+        {
+            "id": 2,
+            "name": "Cheese",
+            "rules": {
+                "oneOf": [
+                    {
+                        "id": 21,
+                        "name": "American Cheese"
+                    },
+                    {
+                        "id": 22,
+                        "name": "Swiss Cheese"
+                    },
+                    {
+                        "id": 23,
+                        "name": "Provolone"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Tomato"
+        },
+        {
+            "id": 4,
+            "name": "Lettuce"
+        },
+        {
+            "id": 5,
+            "name": "Onions"
+        },
+        {
+            "id": 6,
+            "name": "Pickles"
+        },
+        {
+            "id": 7,
+            "name": "Protein",
+            "rules": {
+                "oneOf": [
+                    {
+                        "id": 71,
+                        "name": "Roasted Veggies"
+                    },
+                    {
+                        "id": 72,
+                        "name": "Roasted Chicken"
+                    },
+                    {
+                        "id": 73,
+                        "name": "Pepperoni"
+                    },
+                    {
+                        "id": 74,
+                        "name": "Meatballs"
+                    },
+                    {
+                        "id": 75,
+                        "name": "Cheesesteak"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Chicken Cheesesteak"
+                    },
+                    {
+                        "id": 77,
+                        "name": "Breaded Chicken"
+                    }
+                ]
+            }
+        }
+    ],
+    "choices": [
+        {
+            "id": 1,
+            "name": "Prep Style",
+            "rules": {
+                "oneOf": [
+                    {
+                        "id": 11,
+                        "name": "Hot"
+                    },
+                    {
+                        "id": 12,
+                        "name": "Cold"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Size",
+            "rules": {
+                "oneOf": [
+                    {
+                        "id": 21,
+                        "name": "Junior Hoagie (4-inch)"
+                    },
+                    {
+                        "id": 22,
+                        "name": "Shorti Hoagie (6-inch)"
+                    },
+                    {
+                        "id": 23,
+                        "name": "Classic Hoagie (10-inch)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Butter paper",
+            "defaultSelected": true
+        },
+        {
+            "id": 4,
+            "name": "Wrap paper",
+            "defaultSelected": true
+        },
+        {
+            "id": 5,
+            "name": "Paper Bag",
+            "defaultSelected": true
+        }
+    ],
+    "build": {
+        "ingredients": [1, 21, 3, 4, 5, 6, 72],
+        "choices": [11, 22, 3, 4, 5],
+        "instructions": [
+            {
+                "id": 1,
+                "description": "Cut the bread in the middle and lay it flat on the pan",
+                "rules": {
+                    "required": {
+                        "ingredients": [1]
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "description": "Make sure the cheese is melted",
+                "rules": {
+                    "dependsOn": [3, 4]
+                }
+            },
+            {
+                "id": 3,
+                "description": "Lay the cheese along the edge of the bread",
+                "rules": {
+                    "required": {
+                        "ingredients": [21]
+                    }
+                }
+            },
+            {
+                "id": 4,
+                "description": "Place the pan in the oven"
+            },
+            {
+                "id": 5,
+                "description": "Place the remaining ingredients inside in this order",
+                "rules": {
+                    "required": {
+                        "ingredients": [72, 3, 4, 5, 6]
+                    }
+                }
+            },
+            {
+                "id": 6,
+                "description": "Wrap the Hoagie in butter paper",
+                "rules": {
+                    "required": [
+                        {
+                            "choices": [3]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": 7,
+                "description": "Wrap the Hoagie in Wrap-paper",
+                "rules": {
+                    "required": [
+                        {
+                            "choices": [4]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": 8,
+                "description": "Cut the hoagie in two equal halves and put it in the paper bag",
+                "rules": {
+                    "required": [
+                        {
+                            "choices": [5]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
